@@ -1,8 +1,17 @@
 "use client";
 import { Cart } from "./svgnuud/cart";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { ExitSvg } from "./svgnuud/Exit";
 
 export const Header = () => {
+  const router = useRouter();
+  const SignOut = () => {
+    localStorage.removeItem("isLoggedIn");
+    router.push("/");
+    toast.success("successfully signed out");
+  };
   return (
     <header className="flex justify-between py-4 px-[100px] bg-white">
       <div className="flex gap-8 items-center">
@@ -30,6 +39,12 @@ export const Header = () => {
             alt=""
           />
         </div>
+        <button
+          onClick={SignOut}
+          className="bg-black text-white p-2 rounded-md hover:bg-red-500"
+        >
+          <ExitSvg />
+        </button>
       </div>
     </header>
   );

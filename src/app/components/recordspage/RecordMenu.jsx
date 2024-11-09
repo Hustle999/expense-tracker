@@ -1,3 +1,7 @@
+"use client";
+
+import { AddCategory } from "./catagory/AddCatagory";
+
 export const RecordMenu = () => {
   return (
     <div className="flex flex-col gap-5 w-[400px] h-full p-[20px] bg-white rounded-xl">
@@ -19,11 +23,9 @@ export const RecordMenu = () => {
         </div>
       </div>
       <div>
-        <div className="font-semibold">Catagory</div>
-        <div></div>
-        <button className="ml-5 flex gap-2 text-blue-500">
-          + <div className="text-black">Add catagory</div>{" "}
-        </button>
+        <div className="font-semibold">Category</div>
+        <div className="flex flex-col gap-4"></div>
+        <AddCategory />
       </div>
     </div>
   );
