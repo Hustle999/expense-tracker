@@ -7,7 +7,7 @@ export const Section3 = () => {
         </div>
         <div className="p-10 border-b-2">table-aas baganii ner orj irne</div>
         <div className="p-10 border-b-2">table-aas baganii ner orj irne</div>
-        <div className="p-10 border-b-2">table-aas baganii ner orj irne</div>
+        <div className="p-10 border-b-2">table-aas baganii ner orj irne.</div>
       </div>
     </div>
   );
