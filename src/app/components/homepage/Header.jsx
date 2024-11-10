@@ -7,11 +7,17 @@ import { ExitSvg } from "./svgnuud/Exit";
 
 export const Header = () => {
   const router = useRouter();
+
+  const Records = () => {
+    router.push("/records");
+  };
+
   const SignOut = () => {
     localStorage.removeItem("isLoggedIn");
     router.push("/");
-    toast.success("successfully signed out");
+    toast.success("Successfully signed out");
   };
+
   return (
     <header className="flex justify-between py-4 px-[100px] bg-white">
       <div className="flex gap-8 items-center">
@@ -19,9 +25,7 @@ export const Header = () => {
         <Link href={"/dashboard"}>
           <div>Dashboard</div>
         </Link>
-        <Link href={"records"}>
-          <div>Records</div>
-        </Link>
+        <button onClick={Records}>Records</button>
       </div>
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2 rounded-2xl bg-blue-600 px-4 py-1 text-white ">

@@ -85,7 +85,7 @@ export const BaganaDiagram = () => {
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
-    <div className="h-[350px] pl-5 pr-4">
+    <div className="flex justify-center h-[350px]">
       <canvas ref={canvasRef}></canvas>
     </div>
   );

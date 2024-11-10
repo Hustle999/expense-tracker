@@ -58,19 +58,19 @@ export const AddCategory = () => {
 
       {isModal4Open && (
         <div className="modal-overlay fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="modal-box w-[300px] p-2 rounded-md bg-white">
+          <div className="modal-box w-[400px] p-2 rounded-md bg-white">
             <h3 className="font-bold text-lg text-center">
               Create your category
             </h3>
             <div className="flex gap-3">
               <button
-                className="w-[50px] h-[30px] flex justify-center items-center bg-slate-300 rounded-lg"
+                className="p-4 flex justify-center items-center bg-slate-300 rounded-lg"
                 onClick={() => setIsModal5Open(true)}
               >
                 {selectedIcon}
               </button>
               <input
-                className="bg-slate-300 w-full px-2 rounded-lg"
+                className="bg-slate-300 w-full px-3 text-lg rounded-lg"
                 type="text"
                 placeholder="Category name"
                 value={categoryName}

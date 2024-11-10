@@ -52,46 +52,45 @@ export const Register = () => {
   }, [router]);
 
   return (
-    <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          <h1 className="text-2xl font-bold mb-6 text-center text-black">
-            Sign Up
+    <div className="grid grid-cols-2 h-screen">
+      <div className="flex items-center justify-center min-h-screen ">
+        <div className="bg-white p-8 w-full max-w-md">
+          <div className="flex justify-center items-center gap-4 mb-[50px]">
+            <img width={30} height={30} src="./VectorBlue.png" alt="" />
+            <div className="font-semibold text-2xl">Geld</div>
+          </div>
+          <h1 className="text-2xl font-semibold mb-[5px] text-center">
+            Create Geld account
           </h1>
-          <form onSubmit={formik.handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-              {formik.errors.email ? (
-                <div className="text-red-600">{formik.errors.email}</div>
-              ) : null}
-            </div>
+          <h1 className=" mb-6 text-center ">
+            Sign up below to create your Wallet account
+          </h1>
+          <form className="flex flex-col gap-7" onSubmit={formik.handleSubmit}>
+            <input
+              placeholder="Email"
+              id="email"
+              name="email"
+              type="email"
+              className="mt-1 w-full p-3 border bg-slate-100 border-gray-300 rounded-md"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            {formik.errors.email ? (
+              <div className="text-red-600">{formik.errors.email}</div>
+            ) : null}
 
-            <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              {formik.errors.password ? (
-                <div className="text-red-600">{formik.errors.password}</div>
-              ) : null}
-            </div>
+            <input
+              placeholder="Password"
+              id="password"
+              name="password"
+              type="password"
+              className="mt-1 w-full p-3 border bg-slate-100 border-gray-300 rounded-md"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+            {formik.errors.password ? (
+              <div className="text-red-600">{formik.errors.password}</div>
+            ) : null}
 
             {errorMessage && (
               <div className="mb-4 text-red-600">{errorMessage}</div>
@@ -99,21 +98,22 @@ export const Register = () => {
 
             <button
               type="submit"
-              className="w-full bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600"
+              className="w-full bg-blue-500 text-white p-2 font-semibold rounded-md hover:bg-blue-600"
             >
               Sign Up
             </button>
           </form>
-          <div className="flex flex-col items-center py-3 w-full gap-3">
-            <p>if you have account please Login</p>
+          <div className="flex justify-center items-center py-3 w-full gap-3">
+            <p>Already have account ?</p>
             <Link href="/">
-              <button className="bg-gray-500 text-white p-2 rounded-md hover:bg-gray-600 w-full">
+              <button className=" text-blue-500 hover:text-blue-600 p-2 rounded-md  w-full">
                 Login
               </button>
             </Link>
           </div>
         </div>
       </div>
-    </>
+      <div className="bg-blue-600"></div>
+    </div>
   );
 };
