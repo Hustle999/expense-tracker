@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import { Car, Finance, Home } from "./Icons";
 
-export const AddCategory = () => {
+export const AddCategory = ({ onCategoryAdded }) => {
   const [selectedIcon, setSelectedIcon] = useState(<Home />);
   const [isModal4Open, setIsModal4Open] = useState(false);
   const [isModal5Open, setIsModal5Open] = useState(false);
   const [categoryName, setCategoryName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleIconSelect = (icon) => {
     setSelectedIcon(icon);
@@ -21,28 +22,33 @@ export const AddCategory = () => {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const response = await fetch("http://localhost:4444/create-category", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ tableName: categoryName }),
+        body: JSON.stringify({ categoryname: categoryName }),
       });
 
       const data = await response.json();
+      setIsLoading(false);
 
       setIsModal4Open(false);
 
       if (response.ok) {
         alert(data.message);
+        onCategoryAdded({ name: categoryName });
       } else {
-        alert(`Error: ${data.message || data}`);
+        alert(`Error: ${data.error || data.message}`);
+        console.error("Error response:", data);
       }
     } catch (error) {
       console.error("Error creating category:", error);
       alert("An error occurred while creating the category");
-
+      setIsLoading(false);
       setIsModal4Open(false);
     }
   };
@@ -70,7 +76,7 @@ export const AddCategory = () => {
                 {selectedIcon}
               </button>
               <input
-                className="bg-slate-300 w-full px-3 text-lg rounded-lg"
+                className="bg-slate-300 w-full px-3 rounded-lg"
                 type="text"
                 placeholder="Category name"
                 value={categoryName}
@@ -79,8 +85,8 @@ export const AddCategory = () => {
             </div>
             <div className="modal-action flex justify-end">
               <form onSubmit={handleCreateCategory}>
-                <button className="btn" type="submit">
-                  Add
+                <button className="btn" type="submit" disabled={isLoading}>
+                  {isLoading ? "Adding..." : "Add"}
                 </button>
               </form>
             </div>
