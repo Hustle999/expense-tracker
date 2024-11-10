@@ -1,9 +1,10 @@
 "use client";
-import { Cart } from "./svgnuud/cart";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { ExitSvg } from "./svgnuud/Exit";
+import { RecordAdderMenu } from "../recordspage/RecordAdderMenu";
 
 export const Header = () => {
   const router = useRouter();
@@ -29,10 +30,7 @@ export const Header = () => {
       </div>
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2 rounded-2xl bg-blue-600 px-4 py-1 text-white ">
-          <div>- Your Cart</div>
-          <div className="w-6 h-6">
-            <Cart />
-          </div>
+          <RecordAdderMenu />
         </div>
         <div className="">
           <img
