@@ -7,10 +7,10 @@ export const RecordAdderMenu = () => {
         + Record
       </button>
       <dialog id="my_modal_1" className="modal">
-        <div className="flex flex-col bg-white p-8 text-black">
+        <div className="flex flex-col bg-white px-8 pb-8 text-black rounded-lg">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-lg">Add record</h3>
-            <div className="modal-action">
+            <div className="modal-action pb-5">
               <form method="dialog">
                 <button className="btn text-black">X</button>
               </form>
@@ -87,11 +87,21 @@ export const RecordAdderMenu = () => {
                 </div>
               </div>
               {/* record nemeh */}
-              <div className="bg-blue-600 w-full text-white text-center rounded-xl py-2">
+              <button className="bg-blue-600 w-full text-white text-center rounded-xl py-2">
                 Add Record
-              </div>
+              </button>
             </div>
-            <div>hi</div>
+            <div className="flex flex-col border-slate-400 border-l-2 pl-[10px]">
+              <div className="flex flex-col gap-2">
+                <div className="">Payee</div>
+              <input className="bg-slate-200 rounded-lg w-full p-2" placeholder="write here..." type="text" name="" id="" />
+              </div>
+              <div className="flex flex-col gap-2 h-full">
+                <div>Note</div>
+                <input className="bg-slate-200 rounded-lg h-full w-full p-2 flex items-start" placeholder="write here..." type="text" name="" id="" />
+              </div>
+              
+            </div>
           </div>
         </div>
       </dialog>
